@@ -1,0 +1,710 @@
+/*  ======================================
+   Base Element styles
+   ==================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    color: #222;
+    margin: 0 !important;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li.nav-item.show::marker {
+    color: #1f4a8a !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-nav,
+.bottom-nav {
+    display: none;
+}
+
+/*  ======================================
+   BASE MENU STYLES FOR SMALL SCREENS
+   ==================================== */
+.menu-btn {
+    position: absolute;
+    z-index: 3;
+    right: 18px;
+    top: 18px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.btn-line {
+    position: relative;
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: #444;
+    transition: all 0.5s ease-out;
+}
+
+.menu-btn.close {
+    transform: rotate(180deg); 
+} 
+
+.menu-btn.close .btn-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); 
+}
+
+.menu-btn.close .btn-line:nth-child(2) {
+    opacity: 0;
+}
+        
+.menu-btn.close .btn-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px); 
+}
+
+/* ALIGN THE LOGO TO THE MIDDLE IN SMALL SCREENS */
+.logo-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+    border-left: 1px solid #eee;
+}
+
+.menu .btn-close.close {
+    position: absolute;
+    align-items: center;
+    display: block;
+    color: #222;
+    padding: 6.5px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1000;
+    transition: all 0.5s ease-out; 
+}
+.menu.show {
+    visibility: visible; 
+}
+
+.menu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    float: left;
+    width: 260px;
+    height: 100vh;
+    color: #222;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: normal;
+    margin: 0;
+    padding: 35px 0 0;
+    background: #fff;
+    transform: translate3d(-100%, 0, 0);
+    transition: all 0.5s ease-out; 
+} 
+
+.menu-nav .btn-close {
+    position: absolute;
+    top: 0;
+    font-size: 46px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.menu-nav.show {
+    transform: translate3d(0, 0, 0);
+}
+
+.menu .nav-item.show {
+    transform: translate3d(0, 0, 0); 
+    color: #000;
+    font-size: 13px;
+}
+
+.menu .nav-link {
+    display: block;
+    position: relative;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 0.7rem 0;
+    font-weight: 450;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.5s ease-out; 
+}
+
+.menu .nav-link:hover {
+    color: #1f4a8a; 
+}
+ 
+/*  ======================================
+   Base accordion styles
+   ==================================== */
+.accordion {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    cursor: pointer;
+    padding: 18px 30px;
+    width: 100%;
+    text-align: left;
+    transition: 0.4s;
+    border: none;
+    outline: none;
+}
+
+.accordion:active {
+    background-color: #1f4a8a;
+}
+
+.nav-sub-item {
+    padding: 22px 0;
+}
+
+.accordion li {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 17px;
+}
+
+.menu ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #1f4a8a; /* Change the color */
+    font-weight: 1000; /* If you want it to be bold */
+    /* font-size: 14px; */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1.2em; /* Also needed for space (tweak if needed) */
+  }
+
+.accordion i {
+    font-size: 10px;
+    font-weight: 1px;
+    color: #adadad;
+}
+
+.panel {
+    padding: 0 18px 0 50px;
+    background-color: #fff;
+    display: none;
+}
+
+.panel .nav-sub-item {
+    padding: 18px 0;
+    font-size: 13px;
+}
+
+/* -----------------------------
+content layout using flexbox
+----------------------------------- */
+.logo-2 img {
+    margin: 25px 0 0;
+    text-align: center;
+}
+
+.flex-container-3 {
+    display: flex;
+    margin-top: 60px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.flex-container-3 h1 {
+    font-size: 23px;
+}
+
+.flex-container-3 span.show-on-big,
+button.show-on-big {
+    display: none;
+}
+
+.flex-container-3 li {
+    list-style: none;
+}
+
+.flex-container-3 .section-1,
+.flex-container-3 .section-2 img {
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 100%;
+    width: 100%;
+}
+
+.section-1 { 
+    margin-top: 80px;
+}
+
+.flex-container-3 p.make-brown {
+    color: #ed9000;
+}
+
+.flex-container-3 span.bold {
+    font-weight: bold;
+}
+
+/*  ======================================
+MEDIA QUERIES STARTS
+==================================== */
+
+@media (min-width: 769px) {
+
+
+/*  ======================================
+basic styles
+==================================== */
+
+.top-nav {
+    background: #fff;
+    border-bottom: 1.5px solid #f4f4f4;
+}
+
+.top-nav ul li.nav-item a {
+    color: #1f4a8a;
+}
+
+.bottom-nav {
+    background: #fff;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, .2);
+}
+
+.bottom-nav ul li.nav-item a {
+    color: #222;
+    font-weight: bolder;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.bottom-nav ul ul p {
+    font-size: 14.4px !important;
+    color: #555;
+    font-weight: bold;
+    line-height: 1.5 !important;
+}
+
+.nav-item ul.products span.make-darker {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.make-darker {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.make-blue {
+    color: #1f4a8a !important;
+}
+
+/*  ======================================
+ container
+   ==================================== */
+.container {
+    width: 85%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.container-1 {
+    width: 82%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+/*  ======================================
+ display items flex and their directions
+   ==================================== */
+.flex-container-1,
+.flex-container-2,
+.menu-nav-1,
+.menu-nav-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.domain-flex,
+.product-flex,
+.solution-flex,
+.more-flex {
+    display: flex;
+}
+
+.domain-2 .color p,
+.domain-2 .color i {
+    color: #1f4a8a;
+}
+
+.domain-2,
+.product-2 {
+    border-left: 1px solid rgba(0, 0, 0, .10);
+}
+
+/* -----------------
+DOMAIN & PRODUCTS BLUE BOX STYLES STYLES
+----------------- */
+.domain-1-box,
+.product-2-box {
+    background-color: #1f4a8a;
+    color: #fff !important;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.domain-1-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.domain-1-box span.make-brown {
+    color: #ed9000;
+}
+
+.col {
+    flex: 1;
+}
+
+.domain-1,
+.product-1 {
+    flex: 2;
+}
+
+.flex-container-1,
+.flex-container-2 {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.flex-container-3 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 90px;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.section-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.domain-1-inner-flex {
+    display: flex;
+    padding: 0 15px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/*  ======================================
+   BUTTON STYLES
+==================================== */
+button {
+    border: none;
+    text-decoration: none;
+}
+
+.my-account-button {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 9px;
+    border-radius: 5px;
+    background-color: #1f4a8a;
+}
+
+.my-account-button a,
+.my-account-button i {
+    color: #fff;
+}
+
+.my-account-button i {
+    font-size: 15px;
+    padding-right: 9px;
+}
+
+.domain-1-inner-flex  button.search-button {
+    padding: 15px 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #1f4a8a;
+}
+
+.domain-1-box button.limited,
+.product-2-box button.days {
+    padding: 5px 6px;
+    color: #fff;
+    background-color: #ed9000;
+    border-radius: 30px;
+}
+
+.product-2-box button.save-now {
+    background-color: #fff;
+    color: #1f4a8a;
+    padding: 7px 11px;
+    border-radius: 5px;
+}
+
+button#myBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f4a8a;
+    color: #fff;
+    padding: 13px 10px;
+    border-radius: 100%;
+    position: absolute;
+    right: 40px;
+    bottom: 26px;
+    box-shadow: 0 0 2px 3px rgba(31, 74, 138, .5);
+}
+
+button#myBtn p {
+    margin: 2px 0;
+    font-size: 10px;
+}
+
+button#myBtn i {
+    font-size: 25px;
+}
+
+/*  ======================================
+   transparent background animation
+   ==================================== */
+.more-morer-1-immer {
+    position: relative;
+    margin: 20px 0 !important;
+}
+
+.more-morer-1-immer::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    border-radius: 10px;
+    transition: 0.2s ease;
+    background: rgba(0, 0, 205, 0.1);
+}
+
+.more-morer-1-immer:hover::after {
+    width: 100%;
+}
+
+.products p,
+.solutions p,
+.more p {
+    margin-bottom: 0 !important;
+}
+
+.more-morer-1-immer,
+.more-morer-2-immer {
+    display: flex;
+}
+
+.menu-nav-1 .nav-link {
+    padding-right: 20px;
+}
+
+.menu-nav-2 .nav-link {
+    padding: 0 20px;
+    position: relative;
+}
+
+.menu-nav-2 .nav-link i {
+    font-size: 8px;
+}
+
+/*  ======================================
+   big menu anmation on hover
+   ==================================== */
+
+
+.bottom-nav ul li:hover {
+    transition: all 0.5s ease-out;
+}
+
+.bottom-nav ul li:hover a {
+    color: #ed9000;
+    transition: 0.9s ease-in-out;
+}
+
+ul.menu-nav-2 li a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #1f4a8a;
+    transition: 0.5s ease;
+    margin: 5px 0 0 20px;
+    z-index: 99;
+}
+
+ul.menu-nav-2 li a:hover::after {
+    width: 23px;
+}
+
+/*  ======================================
+   big menu anmation on hover CONTINUE
+   ==================================== */
+
+.bottom-nav ul {
+    position: relative;
+}   
+
+.bottom-nav ul ul.domain,
+.bottom-nav ul ul.products,
+.bottom-nav ul ul.solutions,
+.bottom-nav ul ul.more
+ {
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    padding: 20px;
+    margin: 0;
+}
+
+.bottom-nav ul ul.domain,
+.bottom-nav ul ul.products,
+.bottom-nav ul ul.more {
+    left: -400px;
+    right: -23px;
+}
+
+.bottom-nav ul ul.solutions {
+    left: -720px;
+    right: -23px;
+}
+
+.bottom-nav ul ul .domain-flex,
+.bottom-nav ul ul .product-flex,
+.bottom-nav ul ul .solution-flex,
+.bottom-nav ul ul .solution-flex {
+    position: relative;
+}
+
+.bottom-nav ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.bottom-nav ul.menu-nav-2 ul {
+    display: none;
+}
+
+.bottom-nav ul li:hover > ul {
+    display: block;
+}
+
+.bottom-nav ul li .domain .domain-flex .col,
+.bottom-nav ul li .products .product-flex .col,
+.bottom-nav ul li .solutions .solution-flex .col,
+.bottom-nav ul li .more .more-flex .col {
+    padding: 20px;
+    color: #555 !important;
+    text-align: left;
+}
+
+.more-more-morer-1-immer h4,
+.more-more-morer-2-immer h4 {
+    margin: 0;
+}
+
+.more-more-morer-1-immer p,
+.more-more-morer-2-immer p {
+    margin: 0 0 30px 0;
+}
+
+li.nav-item img.menu-svg {
+    height: 55px;
+    padding: 0 20px 0 10px;
+}
+
+
+/*  ======================================
+   make content visible and invisible on large screens
+   ==================================== */
+.menu-btn,
+.logo-2,
+.menu {
+    display: none;
+}
+
+.top-nav,
+.bottom-nav {
+    display: block;
+}
+
+.logo-flex {
+    display: none;
+}
+
+.flex-container-3 span.remove-on-big {
+    display: none;
+}
+
+.flex-container-3 span.show-on-big {
+    display: block;
+}
+
+
+.section-1 { 
+    margin-top: 0;
+}
+
+.section-1,
+.section-2 {
+    height: 100%;
+    width: 100%;
+}
+
+.section-1 h1 {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.section-1 li,
+.section-1 h3,
+.section-1 p {
+    font-size: 19px;
+}
+
+.section-1 p {
+    margin: 8px 0 16px 0;
+}
+
+}
